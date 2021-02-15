@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_032101) do
+ActiveRecord::Schema.define(version: 2021_02_15_035139) do
 
   create_table "cards", force: :cascade do |t|
     t.string "question"
@@ -25,7 +25,17 @@ ActiveRecord::Schema.define(version: 2021_02_15_032101) do
     t.string "deck_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "card_id"
+    t.index ["card_id"], name: "index_decks_on_card_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "cards", "decks"
+  add_foreign_key "decks", "cards"
 end
