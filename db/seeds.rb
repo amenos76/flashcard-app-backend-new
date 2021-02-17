@@ -1,11 +1,11 @@
 Card.destroy_all
 Deck.destroy_all
 
-math_deck = Deck.create(deck_name: "Math")
-science_deck = Deck.create(deck_name: "Science")
-programming_deck = Deck.create(deck_name: "Programming")
-social_studies_deck = Deck.create(deck_name: "Social Studies")
-animals_deck = Deck.create(deck_name: "Animals")
+math_deck = Deck.create(deck_name: "Math", user_id: 1)
+science_deck = Deck.create(deck_name: "Science", user_id: 1)
+programming_deck = Deck.create(deck_name: "Programming", user_id: 1)
+social_studies_deck = Deck.create(deck_name: "Social Studies", user_id: 1)
+animals_deck = Deck.create(deck_name: "Animals", user_id: 1)
 
 Card.create(question: "What is 10 + 10" , answer: "20", deck: math_deck)
 Card.create(question: "What is 2 + 2" , answer: "4", deck: math_deck)

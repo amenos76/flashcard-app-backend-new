@@ -10,7 +10,7 @@ class DecksController < ApplicationController
 
   # GET /decks/1
   def show
-    render json: @deck
+    render json: @deck, include: :cards
   end
 
   # POST /decks

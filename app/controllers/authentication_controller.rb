@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
           render json: {error: "Cannot find a user by that email"}, status: :unauthorized
       else
           if !@user.authenticate(params[:password])
-              render json: {error: "Incorrent password."}, status: :unauthorized
+              render json: {error: "Incorrect password."}, status: :unauthorized
           else
               payload = {
                   user_id: @user.id
@@ -15,7 +15,7 @@ class AuthenticationController < ApplicationController
               secret = Rails.application.secret_key_base
               token = JWT.encode(payload, secret)
 
-              render json: {user: @user, token: token}, status: :created
+              render json: {user: @user, token: token}, include: [:decks => {include: :cards}], status: :created
           end
       end
   end
