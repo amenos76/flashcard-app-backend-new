@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
 
-    render json: {user: @user}, status: :created
+    render json: {user: @user, decks: @user.decks}, status: :created
   end
 
   private
